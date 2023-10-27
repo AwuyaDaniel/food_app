@@ -51,7 +51,7 @@ class PasswordUpdateSerializer(serializers.Serializer):
 class UpdateUserView(serializers.ModelSerializer):
     class Meta:
         model = User
-        exclude = ('is_superuser', 'is_staff', 'is_student', 'is_teacher', 'password')
+        exclude = ('is_superuser', 'is_staff', 'password')
 
 
 class SingleUserSerializer(serializers.ModelSerializer):
@@ -59,4 +59,4 @@ class SingleUserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        exclude = ('is_superuser', 'is_staff', 'is_student', 'is_teacher', 'password')
+        exclude = ('is_superuser', 'is_staff', 'password')
