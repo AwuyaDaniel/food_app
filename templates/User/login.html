@@ -1,0 +1,201 @@
+{% load static %}
+<!doctype html>
+<!-- Martex - Software, App, SaaS & Startup Landing Pages Pack design by DSAThemes (http://www.dsathemes.com) -->
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en">
+
+	<head>
+
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="author" content="DSAThemes">
+		<meta name="description" content="Martex - Software, App, SaaS & Startup Landing Pages Pack">
+		<meta name="keywords" content="Responsive, HTML5, DSAThemes, Landing, Software, Mobile App, SaaS, Startup, Creative, Digital Product">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+  		<!-- SITE TITLE -->
+		<title>{% block title %}{% endblock %}</title>
+
+		<!-- FAVICON AND TOUCH ICONS -->
+		<link rel="shortcut icon" href="{% static "images/favicon.ico" %}" type="image/x-icon">
+		<link rel="icon" href="{% static "images/favicon.ico" %}" type="image/x-icon">
+		<link rel="apple-touch-icon" sizes="152x152" href="{% static "images/apple-touch-icon-152x152.png" %}">
+		<link rel="apple-touch-icon" sizes="120x120" href="{% static "images/apple-touch-icon-120x120.png" %}">
+		<link rel="apple-touch-icon" sizes="76x76" href="{% static "images/apple-touch-icon-76x76.png" %}">
+		<link rel="apple-touch-icon" href="{% static "images/apple-touch-icon.png" %}">
+		<link rel="icon" href="{% static "images/apple-touch-icon.png" %}" type="image/x-icon">
+
+		<!-- GOOGLE FONTS -->
+		<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+
+		<!-- BOOTSTRAP CSS -->
+		<link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+
+		<!-- FONT ICONS -->
+		<link href="{% static "css/flaticon.css" %}" rel="stylesheet">
+
+		<!-- PLUGINS STYLESHEET -->
+		<link href="{% static "css/menu.css" %}" rel="stylesheet">
+		<link id="effect" href="{% static "css/dropdown-effects/fade-down.css" %}" media="all" rel="stylesheet">
+		<link href="{% static "css/magnific-popup.css" %}" rel="stylesheet">
+		<link href="{% static "css/owl.carousel.min.css" %}" rel="stylesheet">
+		<link href="{% static "css/owl.theme.default.min.css" %}" rel="stylesheet">
+		<link href="{% static "css/lunar.css" %}" rel="stylesheet">
+
+		<!-- ON SCROLL ANIMATION -->
+		<link href="{% static "css/animate.css" %}" rel="stylesheet">
+		<link href="{% static "css/crocus-theme.css" %}" rel="stylesheet">
+		<link href="{% static "css/responsive.css" %}" rel="stylesheet">
+
+	</head>
+
+	<body>
+
+
+
+
+		<!-- PRELOADER SPINNER
+		============================================= -->
+		<div id="loading" class="loading--theme">
+			<div id="loading-center"><span class="loader"></span></div>
+		</div>
+
+
+
+
+		<!-- PAGE CONTENT
+		============================================= -->
+		<div id="page" class="page font--jakarta">
+
+
+
+
+			<!-- LOGIN PAGE
+			============================================= -->
+			<div id="login" class="bg--scroll login-section division">
+				<div class="container">
+					<div class="row justify-content-center">
+
+
+						<!-- REGISTER PAGE WRAPPER -->
+						<div class="col-lg-11">
+							<div class="register-page-wrapper r-16 bg--fixed">	
+								<div class="row">
+
+
+									<!-- LOGIN PAGE TEXT -->
+									<div class="col-md-6">
+										<div class="register-page-txt color--white">
+
+											<!-- Logo -->
+											<img class="img-fluid" src="{% static "images/logo-white.png" %}" alt="logo-image">
+
+											<!-- Title -->
+											<h2 class="s-42 w-700">Welcome</h2>
+											<h2 class="s-42 w-700">back to Martex</h2>
+
+											<!-- Text -->
+											<p class="p-md mt-25">Integer congue sagittis and velna augue egestas magna 
+											   suscipit purus aliquam
+											</p>
+
+											<!-- Copyright -->
+											<div class="register-page-copyright">
+												<p class="p-sm">&copy;AwuyaDaniel. <span>All Rights Reserved</span></p>
+											</div>
+
+										</div>
+									</div>	<!-- END LOGIN PAGE TEXT -->
+
+
+									<!-- LOGIN FORM -->
+									<div class="col-md-6">
+										<div class="register-page-form">
+											<form name="" class="row sign-in-form" method="post" action="{% url 'UserProfile:login' %}">
+                                                {% csrf_token %}
+
+												<!-- Form Input -->	
+												<div class="col-md-12">
+													<p class="p-sm input-header">Email address</p>
+													<input required class="form-control email" type="email" name="username" placeholder="example@example.com">
+												</div>
+
+												<!-- Form Input -->	
+												<div class="col-md-12">
+													<p class="p-sm input-header">Password</p>
+													<div class="wrap-input">
+														<span class="btn-show-pass ico-20"><span class="flaticon-visibility eye-pass"></span></span>
+														<input required class="form-control password" type="password" name="password" placeholder="* * * * * * * * *">
+													</div>
+												</div>
+
+												<!-- Reset Password Link -->
+												<div class="col-md-12">
+													<div class="reset-password-link">
+														<p class="p-sm"><a href="" class="color--theme">{% if error_message %}{{ error_message }}{% endif %}</a></p>
+													</div>
+												</div>
+
+												<!-- Form Submit Button -->	
+												<div class="col-md-12">
+													<button type="submit" class="btn btn--theme hover--theme submit">Log In</button>
+												</div> 
+
+												<!-- Sign Up Link -->	
+												<div class="col-md-12">
+													<p class="create-account text-center">
+														Don't have an account? <a href="{% url 'UserProfile:register' %}" class="color--theme">Sign up</a>
+													</p>
+												</div>  
+
+											</form> 
+										</div>
+									</div>	<!-- END LOGIN FORM -->
+
+
+								</div>  <!-- End row -->
+							</div>	<!-- End register-page-wrapper -->
+						</div>	<!-- END REGISTER PAGE WRAPPER -->
+
+
+			 		</div>	   <!-- End row -->	
+			 	</div>	   <!-- End container -->		
+			</div>	<!-- END LOGIN PAGE -->
+
+
+
+
+		</div>	<!-- END PAGE CONTENT -->	
+
+
+
+
+		<!-- EXTERNAL SCRIPTS
+		============================================= -->
+        <script src="{% static "js/jquery-3.7.0.min.js" %}"></script>
+		<script src="{% static "js/bootstrap.min.js" %}"></script>
+		<script src="{% static "js/modernizr.custom.js" %}"></script>
+		<script src="{% static "js/jquery.easing.js" %}"></script>
+		<script src="{% static "js/jquery.appear.js" %}"></script>
+		<script src="{% static "js/menu.js" %}"></script>
+		<script src="{% static "js/owl.carousel.min.js" %}"></script>
+		<script src="{% static "js/pricing-toggle.js" %}"></script>
+		<script src="{% static "js/jquery.magnific-popup.min.js" %}"></script>
+		<script src="{% static "js/quick-form.js" %}"></script>
+		<script src="{% static "js/jquery.validate.min.js" %}"></script>
+		<script src="{% static "js/jquery.ajaxchimp.min.js" %}"></script>
+		<script src="{% static "js/popper.min.js" %}"></script>
+		<script src="{% static "js/lunar.js" %}"></script>
+		<script src="{% static "js/wow.js" %}"></script>
+
+		<!-- Custom Script -->
+		<script src="{% static "js/custom.js" %}"></script>
+
+	</body>
+
+</html>

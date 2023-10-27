@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home Page{% endblock %}
+{% block content %}
+
+
+
+    <!-- PROJECTS-1
+    ============================================= -->
+    <section id="projects-1" class="inner-page-hero projects-section">
+        <div class="container">
+            <div class="register-page-form">
+                <form name="" class="row sign-in-form" method="post" action="">
+                    <!-- Form Input -->
+                    <div class="col-md-12">
+                        <p class="p-sm input-header">Restaurants Search</p>
+                        <input required class="form-control email" type="text" name="restaurants"
+                               placeholder="The Place">
+                    </div>
+{#                    <div class="row-cols-lg-3 row justify-content-center">#}
+{#                        <button type="submit" class="btn btn--theme hover--theme submit">Search</button>#}
+{#                    </div>#}
+                </form>
+            </div>
+
+            <!-- SECTION TITLE -->
+            <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-9">
+                    <div class="section-title mb-80">
+
+                        <!-- Title -->
+                        <h2 class="s-52 w-700">List of Restaurants Near You</h2>
+
+                        <!-- Text -->
+                        <p class="s-21 color--grey">Here are all the list of Restaurants.</p>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- PROJECTS WRAPPER -->
+            <div class="projects-wrapper">
+                <div class="row align-items-center row-cols-1 row-cols-md-2">
+
+                    {% for rest in nearby_rest.results %}
+                        <!-- PROJECT #1 -->
+                        <!-- TESTIMONIAL #1 -->
+                        <div class="col">
+                            <div id="rw-2-1" class="review-2 bg--white-100 block-shadow r-08">
+
+                                <!-- Quote Icon -->
+                                <div class="review-ico ico-65"><span class="flaticon-quote"></span></div>
+
+                                <!-- Text -->
+                                <div class="review-txt">
+
+                                    <!-- Text -->
+                                    <div class="col">
+                                        <h3 class="p-lg">{{ rest.poi.name }}</h3>
+                                    </div>
+                                    <p></p>
+                                    <div class="col">
+                                        <p class="p-lg"><span class="fw-bold">Distance:</span> {{ rest.dist }}</p>
+                                        <p class="p-lg"><span
+                                                class="fw-bold">Address:</span> {{ rest.address.streetName }}, {{ rest.address.municipalitySubdivision }}, {{ rest.address.municipality }}, {{ rest.address.country }}
+                                        </p>
+                                    </div>
+
+                                    <!-- Author -->
+
+                                </div>    <!-- End Text -->
+
+                            </div>
+                        </div>
+                        <!-- END TESTIMONIAL #1 -->
+                    {% endfor %}
+
+                </div>
+            </div>    <!-- END PROJECTS WRAPPER -->
+
+
+        </div>       <!-- End container -->
+    </section>    <!-- END PROJECTS-1 -->
+
+
+
+
+    <!-- DIVIDER LINE -->
+    <hr class="divider">
+
+
+{% endblock %}

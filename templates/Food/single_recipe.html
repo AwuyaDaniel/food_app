@@ -1,0 +1,137 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home Page{% endblock %}
+{% block content %}
+
+    <!-- SINGLE PROJECT-1
+    ============================================= -->
+    <section id="project-1" class="gr--whitesmoke inner-page-hero single-project">
+        <div class="container">
+            <div class="row justify-content-center">
+
+
+                <!-- PROJECT DISCRIPTION -->
+                <div class="col-lg-11 col-xl-10">
+                    <div class="project-description">
+
+
+                        <!-- PROJECT TITLE -->
+                        <div class="project-title">
+
+                            <!-- Title -->
+                            <h2 class="s-52 w-700">{{ recipe.title }}</h2>
+
+                            <!-- Project Data -->
+                            <div class="project-data">
+                                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+
+                                    <div class="col">
+                                        <p class="p-lg"><span>Cook Time:</span> {{ recipe.total_time }} Min</p>
+                                    </div>
+
+                                    <div class="col text-danger">
+                                        <a href="{{ recipe.link }}"><p class="p-lg"><span>LINK:</span> Click Here</p></a>
+                                    </div>
+
+                                    <div class="col">
+                                        <p class="p-lg"><span>Source:</span> {{ recipe.source }}</p>
+                                    </div>
+
+                                    <div class="col">
+                                        <p class="p-lg"><span>Rating:</span> {{ recipe.rating }} Star</p>
+                                    </div>
+
+                                    <div class="col">
+                                        <p class="p-lg"><span>Reviews:</span> {{ recipe.reviews }}</p>
+                                    </div>
+
+                                    <div class="col">
+                                        <p class="p-lg"><span>Price:</span> <span id="ngn">NGN</span> <span
+                                                id="converted-amount">{{ recipe.price }}</span></p>
+                                        <button onclick="convertCurrency()"
+                                                class="btn-sm r-06 btn--theme hover--theme last-link">Convert
+                                        </button>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>    <!-- END PROJECT TITLE -->
+
+
+                        <!-- PROJECT PREVIEW IMAGE  -->
+                        <div class="project-priview-img mb-50">
+                            <img class="img-fluid r-16" src="
+                                    {% if recipe.thumbnail %}{{ recipe.thumbnail }}{% else %}{% static 'images/symbole-masculin-icone-l-utilisateur-violet.png' %}{% endif %}"
+                                 alt="project-preview">
+                        </div>
+
+
+                        <!-- PROJECT TEXT -->
+                        <div class="project-txt">
+
+
+                            <!-- Small Title -->
+                            <h5 class="s-24 w-700 mt-35 mb-35">Ingredients</h5>
+
+                            <!-- Text -->
+                            <h4>
+                                {{ recipe.ingredients }}
+                            </h4>
+
+                        </div>    <!-- END PROJECT TEXT -->
+
+                    </div>
+                </div>    <!-- END PROJECT DISCRIPTION -->
+
+
+            </div>      <!-- End row -->
+        </div>       <!-- End container -->
+    </section>    <!-- END SINGLE PROJECT-1 -->
+    <p></p>
+    <p></p>
+    <script>
+
+        function formatAmount(amount) {
+            return amount.toLocaleString(undefined, {maximumFractionDigits: 2});
+        }
+
+        function convertCurrency() {
+            // Get the elements by their IDs
+            const ngnElement = document.getElementById("ngn");
+            const amount = {{ recipe.price }};
+
+            if (ngnElement.textContent == "NGN") {
+                // Convert USD to NGN at an exchange rate of 5000
+                const usdAmount = (amount / {{ get_usd }}).toFixed(2); // Format to two decimal places
+
+                // Update the content of the NGN span and display the converted amount
+                ngnElement.textContent = "USD";
+                const originalAmount = parseFloat(usdAmount).toFixed(2);
+                const formattedAmount = formatAmount(originalAmount);
+                document.getElementById("converted-amount").textContent = formattedAmount;
+            } else {
+                // Convert NGN to USD at an exchange rate of 5000
+                const usdAmount = amount // Format to two decimal places
+
+                // Update the content of the NGN span and display the converted amount
+                ngnElement.textContent = "NGN";
+                document.getElementById("converted-amount").textContent = formatAmount(amount);
+            }
+        }
+
+        // Get the HTML element by ID
+        const amountElement = document.getElementById("converted-amount");
+
+        // Parse the current integer value
+        const originalAmount = parseInt(amountElement.textContent, 10);
+
+        // Format the amount
+        const formattedAmount = formatAmount(originalAmount);
+
+        // Update the content of the element with the formatted amount
+        amountElement.textContent = formattedAmount;
+    </script>
+
+{% endblock %}

@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home Page{% endblock %}
+{% block content %}
+
+    <!-- TEAM-2
+    ============================================= -->
+    <section id="team-2" class="gr--whitesmoke pb-40 inner-page-hero team-section">
+        <div class="container">
+
+
+            <!-- SECTION TITLE -->
+            <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-9">
+                    <div class="section-title mb-80">
+                        <h2 class="s-52 w-700">{{ user.first_name }} {{ user.last_name }}</h2>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- SECTION TITLE -->
+            <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-4">
+                    <div class="section-title mb-80">
+                        <div class="team-member-photo r-14">
+                                <div class="hover-overlay">
+                                    <img class="img-fluid" src="{% if user.profile_pic %}{{ user.profile_pic.url }}{% else %}{% static 'images/symbole-masculin-icone-l-utilisateur-violet.png' %}{% endif %}" alt="team-member-foto">
+                                    <div class="item-overlay"></div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>        <!-- End container -->
+    </section>    <!-- END TEAM-2 -->
+
+    <!-- CAREERS-1
+    ============================================= -->
+    <section id="careers-1" class="pt-100 pb-60 careers-section">
+        <div class="container">
+
+
+            <!-- SECTION TITLE -->
+            <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-9">
+                    <div class="section-title mb-70">
+
+                        <!-- Title -->
+                        <h2 class="s-52 w-700">User Information</h2>
+
+                        <!-- Text -->
+                        <a href="{% url "UserProfile:disable_user" %}" class="btn r-04 btn-danger hover--red-100 last-link text-danger border-dark-subtle">Disable User</a>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- OPEN ROLES -->
+            <div class="row row-cols-1 row-cols-md-2">
+
+
+                <!-- OPEN ROLE #1 -->
+                <div class="col">
+                    <div class="role-box bg--white-300 r-10">
+                            <h6 class="s-20 w-700">Email</h6>
+                            <p>{{ user.email }}</p>
+                    </div>
+                </div>    <!-- END OPEN ROLE #1 -->
+
+
+                <!-- OPEN ROLE #2 -->
+                <div class="col">
+                    <div class="role-box bg--white-300 r-10">
+                            <span>Engineering</span>
+                            <h6 class="s-20 w-700">Phone</h6>
+                            <p>{{ user.phone }}</p>
+                    </div>
+                </div>    <!-- END OPEN ROLE #2 -->
+
+
+                <!-- OPEN ROLE #3 -->
+                <div class="col">
+                    <div class="role-box bg--white-300 r-10">
+                            <h6 class="s-20 w-700">Gender</h6>
+                            <p>{{ user.gender }}</p>
+                    </div>
+                </div>    <!-- END OPEN ROLE #3 -->
+
+
+                <!-- OPEN ROLE #4 -->
+                <div class="col">
+                    <div class="role-box bg--white-300 r-10">
+                            <h6 class="s-20 w-700">First / Middle / Last </h6>
+                            <p>{{ user.first_name }} {{ user.middle_name }}  {{ user.last_name }}</p>
+                    </div>
+                </div>    <!-- END OPEN ROLE #4 -->
+
+
+                <!-- OPEN ROLE #5 -->
+                <div class="col">
+                    <div class="role-box bg--white-300 r-10">
+                            <h6 class="s-20 w-700">salutation</h6>
+                            <p>{{ user.salutation }}</p>
+                    </div>
+                </div>    <!-- END OPEN ROLE #5 -->
+
+
+                <!-- OPEN ROLE #6 -->
+                <div class="col">
+                    <div class="role-box bg--white-300 r-10">
+                            <h6 class="s-20 w-700">Bio</h6>
+                            <p>{{ user.bio }}</p>
+                    </div>
+                </div>    <!-- END OPEN ROLE #6 -->
+
+
+            </div>    <!-- END OPEN ROLES -->
+
+
+        </div> <!-- End container -->
+    </section>    <!-- END CAREERS-1 -->
+
+
+
+
+
+
+    <!-- DIVIDER LINE -->
+    <hr class="divider">
+
+
+    </div>    <!-- END PAGE CONTENT -->
+
+{% endblock %}

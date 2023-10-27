@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home Page{% endblock %}
+{% block content %}
+
+			<!-- SINGLE PROJECT-1
+			============================================= -->
+			<section id="project-1" class="gr--whitesmoke inner-page-hero single-project">
+				<div class="container">
+					<div class="row justify-content-center">
+
+
+						<!-- PROJECT DISCRIPTION -->
+						<div class="col-lg-11 col-xl-10">
+							<div class="project-description">
+
+
+								<!-- PROJECT TITLE -->
+								<div class="project-title">
+
+									<!-- Title -->
+									<h2 class="s-52 w-700">{{ restaurant.name }}</h2>
+
+									<!-- Project Data -->
+									<div class="project-data">
+										<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+
+											<div class="col">
+												<p class="p-lg"><span>Address:</span> {{ restaurant.address }}</p>
+											</div>
+
+											<div class="col">
+												<p class="p-lg"><span>Phone:</span> {{ restaurant.phone_number }}</p>
+											</div>
+
+											<div class="col">
+												<p class="p-lg"><span>Email:</span> {{ restaurant.email_address }}</p>
+											</div>
+
+											<div class="col">
+												<p class="p-lg"><span>Opening Hours:</span> {{ restaurant.opening_hours }}</p>
+											</div>
+
+											<div class="col">
+												<p class="p-lg"><a href="{{ restaurant.website }}" class="color--theme">{{ restaurant.website }}</a></p>
+											</div>
+
+										</div>
+									</div>
+
+								</div>	<!-- END PROJECT TITLE -->
+
+
+								<!-- PROJECT PREVIEW IMAGE  -->
+					 			<div class="project-priview-img mb-50">
+									<img class="img-fluid r-16" src="{% if restaurant.image %}{{ restaurant.image.url }}{% else %}{% static 'images/symbole-masculin-icone-l-utilisateur-violet.png' %}{% endif %}" alt="project-preview">
+								</div>
+
+
+								<!-- PROJECT TEXT -->
+								<div class="project-txt">
+
+									<!-- Text -->
+                                    <h5 class="s-24 w-700 mt-35 mb-35">Description</h5>
+									<p>
+                                        {{ restaurant.description }}
+									</p>
+
+
+							</div>
+						</div>	<!-- END PROJECT DISCRIPTION -->
+                        </div>
+
+
+					</div>	  <!-- End row -->
+				</div>	   <!-- End container -->
+			</section>	<!-- END SINGLE PROJECT-1 -->
+    <hr/>
+
+{% endblock %}
